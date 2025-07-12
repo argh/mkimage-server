@@ -1,7 +1,8 @@
 # mkimage-server
 
 On-demand image resize server based on 'express'.  Heavily modified from the original Boxee code by CreativeLive over the years.
-
+Most information in this file is obsolete; the server typically is run in a Docker container now.
+(Repo archived for posterity, will need build process tweaking to excise old CreativeLive internal references to be usable.)
 
 ### Installation & running
 

@@ -1,6 +1,7 @@
 # mkimage-server
 
-On-demand image resize server based on 'express'
+On-demand image resize server based on 'express'.  Heavily modified from the original Boxee code by CreativeLive over the years.
+
 
 ### Installation & running
 
@@ -26,32 +27,7 @@ On-demand image resize server based on 'express'
     # run it (in production)
     NODE_ENV=production bin/mkimage
 
-##CreativeLive specific setup
-in Ngninx setup
-```
-add to cdn.creativelive.com
-  location ~* ^/(fill|fit|crop|chop)/ {
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-NginX-Proxy true;
-    proxy_pass http://mkserver;
-    proxy_redirect off;
-  }
 
-add to creativelive.com
-upstream mkserver {
-  server 127.0.0.1:3020;
-}
-
-  location ~* ^/(fill|fit|crop|chop)/ {
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-NginX-Proxy true;
-    proxy_pass http://mkserver;
-    proxy_redirect off;
-  }
-```
-Haproxy will need to redirect those same routes fill/, fit/, and crop/ to whatever server is running the mkimage-server.
 
 ### Basic usage
 
@@ -115,4 +91,4 @@ Note: `lib/oldapi.js` is actually the new API, don't let it fool you.
     http://example.com/cache?url=http%3A%2F%2Fwww.google.com%2Fimages%2Ficons%2Fproduct%2Fapps-128.png
 ***
 
-### *More docs comming soon*
+### *More docs coming soon*
